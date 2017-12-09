@@ -191,7 +191,7 @@ namespace Kursach
             {
                 l[i] *= Window.Hann(l[i], l.Length);
             }*/
-            for (int i = 0; i < myChart.Series.Count; i++)
+            if(myChart.Series.Count>0) for (int i = myChart.Series.Count-1; i >= 0; i--)
             {
                 myChart.Series[i].Points.Clear();
                 myChart.Series.RemoveAt(i);
