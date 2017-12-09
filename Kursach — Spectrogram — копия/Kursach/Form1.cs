@@ -17,26 +17,47 @@ namespace Kursach
         private double[] l;
         private static double[] oldl;
         private double[] r;
-        int size= 65536;
+        private string fileName;
+        private string filePath;
+
+        int size = 65536;
 
         public Form1()
         {
             InitializeComponent();
 
-            myChart.ChartAreas.Add(new ChartArea("Math functions"));
-            mySeriesOfPoint = new Series("Sinus");
-            mySeriesOfPoint.ChartType = SeriesChartType.Line;
-            mySeriesOfPoint.ChartArea = "Math functions";
-
             btShowSpectr.Click += BtShowSpectr_Click;
             cmBoxWindowFunc.SelectedIndexChanged += CmBoxWindowFunc_SelectedIndexChanged;
             cmBoxNumberOfCounts.SelectedIndexChanged += CmBoxNumberOfCounts_SelectedIndexChanged;
+            btOpenFile.Click += BtOpenFile_Click;
 
-            Class2.readWav("E:\\Git_Projects\\Kursach\\Kursach — Spectrogram — копия\\Kursach\\bin\\Debug\\noise.wav", out l, out r);
-            oldl = new double[l.Length];
-            for (int i = 0; i < oldl.Length; i++)
+         }
+
+        private void BtOpenFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "WAV files(*.wav)|*.wav|All files(*.*)|*.*";
+            openFileDialog1.DefaultExt = "txt";
+            openFileDialog1.AddExtension = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                oldl[i] = l[i];
+                fileName = openFileDialog1.SafeFileName;
+                filePath = openFileDialog1.FileName;
+                tBFileName.Text = fileName;
+                tBFilePath.Text = filePath;
+
+                if(myChart.ChartAreas.Count==0) myChart.ChartAreas.Add(new ChartArea("Math functions"));
+                mySeriesOfPoint = new Series("Sinus");
+                mySeriesOfPoint.ChartType = SeriesChartType.Line;
+                mySeriesOfPoint.ChartArea = "Math functions";
+
+                Class2.readWav(filePath, out l, out r);
+                oldl = new double[l.Length];
+                for (int i = 0; i < oldl.Length; i++)
+                {
+                    oldl[i] = l[i];
+                }
             }
         }
 
@@ -140,6 +161,20 @@ namespace Kursach
 
         private void ShowSpectr()
         {
+            if (myChart.Series.Count < 1)
+            {
+                mySeriesOfPoint = new Series("Sinus");
+                mySeriesOfPoint.ChartType = SeriesChartType.Line;
+                mySeriesOfPoint.ChartArea = "Math functions";
+            }
+            else
+            {
+                mySeriesOfPoint = new Series(String.Format("Series {0}",myChart.Series.Count));
+                mySeriesOfPoint.ChartType = SeriesChartType.Line;
+                mySeriesOfPoint.ChartArea = "Math functions";
+            }
+            //myChart.Series.Remove(mySeriesOfPoint);*/
+
 
             /*for (var i = 0; i < l.Length; i++)
             {
