@@ -14,11 +14,12 @@ namespace Kursach
     public partial class Form1 : Form
     {
         private static Series mySeriesOfPoint;
-        private double[] l;
-        private static double[] oldl;
-        private double[] r;
-        private string fileName;
-        private string filePath;
+        private double[][] l;
+        private static double[][] oldl;
+        private double[][] r;
+        private string []fileName;
+        private string []filePath;
+        private int countReadFile=0;
 
         int size = 65536;
 
@@ -31,6 +32,12 @@ namespace Kursach
             cmBoxNumberOfCounts.SelectedIndexChanged += CmBoxNumberOfCounts_SelectedIndexChanged;
             btOpenFile.Click += BtOpenFile_Click;
 
+            fileName = new string[5];
+            filePath = new string[5];
+            
+            l = new double[5][];
+            oldl = new double[5][];
+            r = new double[5][];
          }
 
         private void BtOpenFile_Click(object sender, EventArgs e)
@@ -42,22 +49,26 @@ namespace Kursach
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                fileName = openFileDialog1.SafeFileName;
-                filePath = openFileDialog1.FileName;
-                tBFileName.Text = fileName;
-                tBFilePath.Text = filePath;
+                fileName[countReadFile] = openFileDialog1.SafeFileName;
+                filePath[countReadFile] = openFileDialog1.FileName;
+                tBFileName.Text = fileName[countReadFile];
+                tBFilePath.Text = filePath[countReadFile];
 
                 if(myChart.ChartAreas.Count==0) myChart.ChartAreas.Add(new ChartArea("Math functions"));
-                mySeriesOfPoint = new Series("Sinus");
+                /*mySeriesOfPoint = new Series("Sinus");
                 mySeriesOfPoint.ChartType = SeriesChartType.Line;
-                mySeriesOfPoint.ChartArea = "Math functions";
+                mySeriesOfPoint.ChartArea = "Math functions";*/
 
-                Class2.readWav(filePath, out l, out r);
-                oldl = new double[l.Length];
-                for (int i = 0; i < oldl.Length; i++)
+                for (int j = 0; j < countReadFile+1; j++)
                 {
-                    oldl[i] = l[i];
+                    Class2.readWav(filePath[j], out l[j], out r[j]);
+                    oldl[j] = new double[l[j].Length];
+                    for (int i = 0; i < oldl[j].Length; i++)
+                    {
+                        oldl[j][i] = l[j][i];
+                    }
                 }
+                ++countReadFile;
             }
         }
 
@@ -98,12 +109,14 @@ namespace Kursach
                     size = 524288;
                     break;
                 case 10:
-                    size = l.Length;
+                    size = l[0].Length;
                     break;
             }
-
-            myChart.Series[0].Points.Clear();
-            myChart.Series.RemoveAt(0);
+            for (int i = 0; i < myChart.Series.Count; i++)
+            {
+                myChart.Series[i].Points.Clear();
+                myChart.Series.RemoveAt(i);
+            }
             ShowSpectr();
         }
 
@@ -114,43 +127,52 @@ namespace Kursach
                 case -1:
                     break;
                 case 0:
-                    for (var i = 0; i < l.Length; i++)
+                    for(int j=0;j<countReadFile;j++)
+                        for (var i = 0; i < l[j].Length; i++)
                     {
-                        l[i] *= Window.Rectangle(l[i], l.Length);
+                        l[j][i] *= Window.Rectangle(l[j][i], l[j].Length);
                     }
                     break;
                 case 1:
-                    for (var i = 0; i < l.Length; i++)
+                    for (int j = 0; j < countReadFile; j++)
+                        for (var i = 0; i < l[j].Length; i++)
                     {
-                        l[i] *= Window.Gausse(l[i], l.Length);
+                        l[j][i] *= Window.Gausse(l[j][i], l[j].Length);
                     }
                     break;
                 case 2:
-                    for (var i = 0; i < l.Length; i++)
+                    for (int j = 0; j < countReadFile; j++)
+                        for (var i = 0; i < l[j].Length; i++)
                     {
-                        l[i] *= Window.Hamming(l[i], l.Length);
+                        l[j][i] *= Window.Hamming(l[j][i], l[j].Length);
                     }
                     break;
                 case 3:
-                    for (var i = 0; i < l.Length; i++)
+                    for (int j = 0; j < countReadFile; j++)
+                        for (var i = 0; i < l[j].Length; i++)
                     {
-                        l[i] *= Window.Hann(l[i], l.Length);
+                        l[j][i] *= Window.Hann(l[j][i], l[j].Length);
                     }
                     break;
                 case 4:
-                    for (var i = 0; i < l.Length; i++)
+                    for (int j = 0; j < countReadFile; j++)
+                        for (var i = 0; i < l[j].Length; i++)
                     {
-                        l[i] *= Window.BlackmannHarris(l[i], l.Length);
+                        l[j][i] *= Window.BlackmannHarris(l[j][i], l[j].Length);
                     }
                     break;
             }
 
-            myChart.Series[0].Points.Clear();
-            myChart.Series.RemoveAt(0);
-            ShowSpectr();
-            for (int i = 0; i < oldl.Length; i++)
+            for (int i = 0; i < myChart.Series.Count; i++)
             {
-                l[i] = oldl[i];
+                myChart.Series[i].Points.Clear();
+                myChart.Series.RemoveAt(i);
+            }
+            ShowSpectr();
+            for (int j = 0; j < countReadFile; j++)
+                for (int i = 0; i < oldl[j].Length; i++)
+            {
+                l[j][i] = oldl[j][i];
             }
         }
 
@@ -161,18 +183,7 @@ namespace Kursach
 
         private void ShowSpectr()
         {
-            if (myChart.Series.Count < 1)
-            {
-                mySeriesOfPoint = new Series("Sinus");
-                mySeriesOfPoint.ChartType = SeriesChartType.Line;
-                mySeriesOfPoint.ChartArea = "Math functions";
-            }
-            else
-            {
-                mySeriesOfPoint = new Series(String.Format("Series {0}",myChart.Series.Count));
-                mySeriesOfPoint.ChartType = SeriesChartType.Line;
-                mySeriesOfPoint.ChartArea = "Math functions";
-            }
+
             //myChart.Series.Remove(mySeriesOfPoint);*/
 
 
@@ -180,49 +191,61 @@ namespace Kursach
             {
                 l[i] *= Window.Hann(l[i], l.Length);
             }*/
-
-            Complex[] complex = new Complex[size];
-
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < myChart.Series.Count; i++)
             {
-                complex[i] = new Complex(l[i], 0);
+                myChart.Series[i].Points.Clear();
+                myChart.Series.RemoveAt(i);
             }
 
-            var spectrum = Butterfly.DecimationInTime(complex, true);
-            /*for (var i = 0; i < spectrum.Length; i++)
+            for (int j = 0; j < countReadFile; j++)
             {
-                spectrum[i] /= spectrum.Length;
-            }*/
+                mySeriesOfPoint = new Series(String.Format("Series {0}", j/*myChart.Series.Count*/));
+                mySeriesOfPoint.ChartType = SeriesChartType.Line;
+                mySeriesOfPoint.ChartArea = "Math functions";
 
-            double cur_freq = 0;
-            double delta = (44100.0) / (spectrum.Length / 2);
-            double[] magn = new double[size];
+                Complex[] complex = new Complex[size];
 
-            for (var i = 0; i < spectrum.Length; i += 2)
-            {
-                magn[i] = cur_freq;
-                magn[i + 1] = spectrum[i].Magnitude;
-                cur_freq += delta;
+                for (int i = 0; i < size; i++)
+                {
+                    complex[i] = new Complex(l[j][i], 0);
+                }
+
+                var spectrum = Butterfly.DecimationInTime(complex, true);
+                /*for (var i = 0; i < spectrum.Length; i++)
+                {
+                    spectrum[i] /= spectrum.Length;
+                }*/
+
+                double cur_freq = 0;
+                double delta = (44100.0) / (spectrum.Length / 2);
+                double[] magn = new double[size];
+
+                for (var i = 0; i < spectrum.Length; i += 2)
+                {
+                    magn[i] = cur_freq;
+                    magn[i + 1] = spectrum[i].Magnitude;
+                    cur_freq += delta;
+                }
+
+
+                /*for (var i = 0; i < magn.Length; i++)
+                {
+                    mySeriesOfPoint.Points.AddXY(i, magn[i]);
+                }
+                //Добавляем созданный набор точек в Chart
+                myChart.Series.Add(mySeriesOfPoint);*/
+                for (int i = 1; i < 5000; i += 2)
+                {
+                    if ((10 * Math.Log10(magn[i])) != Double.PositiveInfinity && (10 * Math.Log10(magn[i])) > Double.NegativeInfinity)
+                        //mySeriesOfPoint.Points.AddXY(i, 10 * Math.Log10(magn[i]));
+                        //else mySeriesOfPoint.Points.AddXY(i, 0);
+                        mySeriesOfPoint.Points.AddXY(magn[i - 1], 10 * Math.Log10(magn[i]));
+                }
+
+               
+                //Добавляем созданный набор точек в Chart
+                myChart.Series.Add(mySeriesOfPoint);
             }
-
-
-            /*for (var i = 0; i < magn.Length; i++)
-            {
-                mySeriesOfPoint.Points.AddXY(i, magn[i]);
-            }
-            //Добавляем созданный набор точек в Chart
-            myChart.Series.Add(mySeriesOfPoint);*/
-            for (int i = 1; i < 5000; i += 2)
-            {
-                if ((10 * Math.Log10(magn[i])) != Double.PositiveInfinity && (10 * Math.Log10(magn[i])) > Double.NegativeInfinity)
-                    //mySeriesOfPoint.Points.AddXY(i, 10 * Math.Log10(magn[i]));
-                    //else mySeriesOfPoint.Points.AddXY(i, 0);
-                    mySeriesOfPoint.Points.AddXY(magn[i - 1], 10 * Math.Log10(magn[i]));
-            }
-
-
-            //Добавляем созданный набор точек в Chart
-            myChart.Series.Add(mySeriesOfPoint);
         }
     }
 }

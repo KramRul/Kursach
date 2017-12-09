@@ -197,8 +197,8 @@ namespace Kursach
             default:
                 return false;
         }
-
-        switch (channels)
+            reader.Close();
+            switch (channels)
         {
             case 1:
                 //L = asFloat;
