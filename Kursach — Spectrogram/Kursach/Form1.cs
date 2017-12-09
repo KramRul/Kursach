@@ -35,14 +35,12 @@ namespace Kursach
 
             double[] l;
             double[] r;
-            Class2.readWav("C:\\Users\\KramRul\\source\\repos\\ConsoleApp1\\ConsoleApp1\\bin\\Debug\\test.wav", out l, out r);
+            Class2.readWav("E:\\Git_Projects\\Kursach\\Kursach — Spectrogram\\Kursach\\bin\\Debug\\test.wav", out l, out r);
 
-
-
-            //for (var i = 0; i < l.Length; i++)
-            //{
-            //    l[i] *= Window.Gausse(l[i], l.Length);
-            //}
+            /*for (var i = 0; i < l.Length; i++)
+            {
+                l[i] *= Window.Hann(l[i], l.Length);
+            }*/
 
             Complex[] complex = new Complex[l.Length];
 
@@ -52,10 +50,12 @@ namespace Kursach
             }
 
             var spectrum = Butterfly.DecimationInTime(complex, true);
-            for (var i = 0; i < spectrum.Length; i++)
+            /*for (var i = 0; i < spectrum.Length; i++)
             {
                 spectrum[i] /= spectrum.Length;
-            }
+            }*/
+
+            
 
             double cur_freq = 0;
             double delta = (44100.0) / (spectrum.Length/2);

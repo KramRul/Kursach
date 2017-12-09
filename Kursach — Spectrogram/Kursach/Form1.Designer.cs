@@ -34,10 +34,9 @@
             // 
             // myChart
             // 
-            this.myChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myChart.Location = new System.Drawing.Point(0, 0);
+            this.myChart.Location = new System.Drawing.Point(12, 12);
             this.myChart.Name = "myChart";
-            this.myChart.Size = new System.Drawing.Size(1143, 525);
+            this.myChart.Size = new System.Drawing.Size(994, 396);
             this.myChart.TabIndex = 0;
             // 
             // Form1
