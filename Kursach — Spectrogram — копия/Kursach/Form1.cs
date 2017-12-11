@@ -72,6 +72,9 @@ namespace Kursach
                         scale = 20000;
                         break;
                 }
+
+                if (size < scale) throw new Exception("Количество отсчётов должно быть больше масштаба.");
+
                 for (int i = 0; i < myChart.Series.Count; i++)
                 {
                     myChart.Series[i].Points.Clear();
@@ -81,6 +84,7 @@ namespace Kursach
             }
             catch (Exception ex)
             {
+                scale = 5000;
                 MessageBox.Show("Ошибка: " + ex.Message + "\r\n" + "Метод: " + ex.TargetSite);
             }
         }
@@ -97,7 +101,7 @@ namespace Kursach
                 if (countReadFile > 5) throw new Exception("Количество выбраных файлов превысило порог.");
 
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.Filter = "WAV files(*.wav)|*.wav|All files(*.*)|*.*";
+                openFileDialog1.Filter = "WAV files(*.wav)|*.wav";
                 openFileDialog1.DefaultExt = "wav";
                 openFileDialog1.AddExtension = true;
 
@@ -174,6 +178,10 @@ namespace Kursach
                         size = l[0].Length;
                         break;
                 }
+
+                if (size < scale) throw new Exception("Количество отсчётов должно быть больше масштаба.");
+                if (size > l[0].Length) throw new Exception("Превышение числа отсчётов для спектра.");
+
                 for (int i = 0; i < myChart.Series.Count; i++)
                 {
                     myChart.Series[i].Points.Clear();
@@ -183,6 +191,7 @@ namespace Kursach
             }
             catch (Exception ex)
             {
+                size = 65536;
                 MessageBox.Show("Ошибка: " + ex.Message + "\r\n" + "Метод: " + ex.TargetSite);
             }
         }

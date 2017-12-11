@@ -63,6 +63,9 @@
             // 
             // myChart
             // 
+            this.myChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myChart.Location = new System.Drawing.Point(12, 47);
             this.myChart.Name = "myChart";
             this.myChart.Size = new System.Drawing.Size(994, 396);
@@ -70,6 +73,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 459);
             this.label1.Name = "label1";
@@ -79,6 +83,7 @@
             // 
             // cmBoxWindowFunc
             // 
+            this.cmBoxWindowFunc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmBoxWindowFunc.FormattingEnabled = true;
             this.cmBoxWindowFunc.Items.AddRange(new object[] {
             "Прямоугольное окно",
@@ -94,6 +99,7 @@
             // 
             // btOpenFile
             // 
+            this.btOpenFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btOpenFile.Location = new System.Drawing.Point(1024, 47);
             this.btOpenFile.Name = "btOpenFile";
             this.btOpenFile.Size = new System.Drawing.Size(184, 45);
@@ -103,6 +109,7 @@
             // 
             // btShowSpectr
             // 
+            this.btShowSpectr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btShowSpectr.Location = new System.Drawing.Point(1024, 107);
             this.btShowSpectr.Name = "btShowSpectr";
             this.btShowSpectr.Size = new System.Drawing.Size(184, 45);
@@ -112,6 +119,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(162, 459);
             this.label2.Name = "label2";
@@ -121,6 +129,7 @@
             // 
             // cmBoxNumberOfCounts
             // 
+            this.cmBoxNumberOfCounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmBoxNumberOfCounts.FormattingEnabled = true;
             this.cmBoxNumberOfCounts.Items.AddRange(new object[] {
             "1024",
@@ -176,6 +185,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1052, 161);
             this.label5.Name = "label5";
@@ -185,6 +195,7 @@
             // 
             // cmBoxHarmonic
             // 
+            this.cmBoxHarmonic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmBoxHarmonic.FormattingEnabled = true;
             this.cmBoxHarmonic.Items.AddRange(new object[] {
             "1",
@@ -200,6 +211,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(1021, 198);
             this.label6.Name = "label6";
@@ -209,6 +221,7 @@
             // 
             // tBFreqOne
             // 
+            this.tBFreqOne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBFreqOne.Location = new System.Drawing.Point(1065, 218);
             this.tBFreqOne.Name = "tBFreqOne";
             this.tBFreqOne.ReadOnly = true;
@@ -217,6 +230,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(1171, 218);
             this.label7.Name = "label7";
@@ -226,6 +240,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(1172, 263);
             this.label8.Name = "label8";
@@ -235,6 +250,7 @@
             // 
             // tBFreqTwo
             // 
+            this.tBFreqTwo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBFreqTwo.Location = new System.Drawing.Point(1066, 263);
             this.tBFreqTwo.Name = "tBFreqTwo";
             this.tBFreqTwo.ReadOnly = true;
@@ -243,6 +259,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(1022, 243);
             this.label9.Name = "label9";
@@ -252,6 +269,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(1172, 308);
             this.label10.Name = "label10";
@@ -261,6 +279,7 @@
             // 
             // tBFreqThree
             // 
+            this.tBFreqThree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBFreqThree.Location = new System.Drawing.Point(1066, 308);
             this.tBFreqThree.Name = "tBFreqThree";
             this.tBFreqThree.ReadOnly = true;
@@ -269,6 +288,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(1022, 288);
             this.label11.Name = "label11";
@@ -278,6 +298,7 @@
             // 
             // label12
             // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(1171, 353);
             this.label12.Name = "label12";
@@ -287,6 +308,7 @@
             // 
             // tBFreqFour
             // 
+            this.tBFreqFour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBFreqFour.Location = new System.Drawing.Point(1065, 353);
             this.tBFreqFour.Name = "tBFreqFour";
             this.tBFreqFour.ReadOnly = true;
@@ -295,6 +317,7 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(1021, 333);
             this.label13.Name = "label13";
@@ -304,6 +327,7 @@
             // 
             // label14
             // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(1172, 398);
             this.label14.Name = "label14";
@@ -313,6 +337,7 @@
             // 
             // tBFreqFive
             // 
+            this.tBFreqFive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tBFreqFive.Location = new System.Drawing.Point(1066, 398);
             this.tBFreqFive.Name = "tBFreqFive";
             this.tBFreqFive.ReadOnly = true;
@@ -321,6 +346,7 @@
             // 
             // label15
             // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(1022, 378);
             this.label15.Name = "label15";
@@ -330,6 +356,7 @@
             // 
             // cmBoxScale
             // 
+            this.cmBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmBoxScale.FormattingEnabled = true;
             this.cmBoxScale.Items.AddRange(new object[] {
             "1000",
@@ -346,6 +373,7 @@
             // 
             // label16
             // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(329, 459);
             this.label16.Name = "label16";
@@ -388,6 +416,7 @@
             this.Controls.Add(this.cmBoxWindowFunc);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.myChart);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.myChart)).EndInit();
