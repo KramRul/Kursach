@@ -30,6 +30,7 @@ namespace Kursach
             btShowSpectr.Click += BtShowSpectr_Click;
             cmBoxWindowFunc.SelectedIndexChanged += CmBoxWindowFunc_SelectedIndexChanged;
             cmBoxNumberOfCounts.SelectedIndexChanged += CmBoxNumberOfCounts_SelectedIndexChanged;
+            cmBoxHarmonic.SelectedIndexChanged += CmBoxHarmonic_SelectedIndexChanged;
             btOpenFile.Click += BtOpenFile_Click;
 
             fileName = new string[5];
@@ -39,6 +40,11 @@ namespace Kursach
             oldl = new double[5][];
             r = new double[5][];
          }
+
+        private void CmBoxHarmonic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowFreq();
+        }
 
         private void BtOpenFile_Click(object sender, EventArgs e)
         {
@@ -246,6 +252,96 @@ namespace Kursach
                 //Добавляем созданный набор точек в Chart
                 myChart.Series.Add(mySeriesOfPoint);
             }
+
+            ShowFreq();
+        }
+
+        private void ShowFreq()
+        {
+            var Peaks = FindPeaks();
+            switch (cmBoxHarmonic.SelectedIndex)
+            {
+                case -1:
+                    break;
+                case 0:
+                    if (Peaks[0] != null) tBFreqOne.Text = Convert.ToString(Peaks[0][0].X);
+                    if (Peaks[1] != null) tBFreqTwo.Text = Convert.ToString(Peaks[1][0].X);
+                    if (Peaks[2] != null) tBFreqThree.Text = Convert.ToString(Peaks[2][0].X);
+                    if (Peaks[3] != null) tBFreqFour.Text = Convert.ToString(Peaks[3][0].X);
+                    if (Peaks[4] != null) tBFreqFive.Text = Convert.ToString(Peaks[4][0].X);
+                    break;
+                case 1:
+                    if (Peaks[0] != null) tBFreqOne.Text = Convert.ToString(Peaks[0][1].X);
+                    if (Peaks[1] != null) tBFreqTwo.Text = Convert.ToString(Peaks[1][1].X);
+                    if (Peaks[2] != null) tBFreqThree.Text = Convert.ToString(Peaks[2][1].X);
+                    if (Peaks[3] != null) tBFreqFour.Text = Convert.ToString(Peaks[3][1].X);
+                    if (Peaks[4] != null) tBFreqFive.Text = Convert.ToString(Peaks[4][1].X);
+                    break;
+                case 2:
+                    if (Peaks[0] != null) tBFreqOne.Text = Convert.ToString(Peaks[0][2].X);
+                    if (Peaks[1] != null) tBFreqTwo.Text = Convert.ToString(Peaks[1][2].X);
+                    if (Peaks[2] != null) tBFreqThree.Text = Convert.ToString(Peaks[2][2].X);
+                    if (Peaks[3] != null) tBFreqFour.Text = Convert.ToString(Peaks[3][2].X);
+                    if (Peaks[4] != null) tBFreqFive.Text = Convert.ToString(Peaks[4][2].X);
+                    break;
+                case 3:
+                    if (Peaks[0] != null) tBFreqOne.Text = Convert.ToString(Peaks[0][4].X);
+                    if (Peaks[1] != null) tBFreqTwo.Text = Convert.ToString(Peaks[1][4].X);
+                    if (Peaks[2] != null) tBFreqThree.Text = Convert.ToString(Peaks[2][4].X);
+                    if (Peaks[3] != null) tBFreqFour.Text = Convert.ToString(Peaks[3][4].X);
+                    if (Peaks[4] != null) tBFreqFive.Text = Convert.ToString(Peaks[4][4].X);
+                    break;
+                case 4:
+                    if (Peaks[0] != null) tBFreqOne.Text = Convert.ToString(Peaks[0][9].X);
+                    if (Peaks[1] != null) tBFreqTwo.Text = Convert.ToString(Peaks[1][9].X);
+                    if (Peaks[2] != null) tBFreqThree.Text = Convert.ToString(Peaks[2][9].X);
+                    if (Peaks[3] != null) tBFreqFour.Text = Convert.ToString(Peaks[3][9].X);
+                    if (Peaks[4] != null) tBFreqFive.Text = Convert.ToString(Peaks[4][9].X);
+                    break;
+                case 5:
+                    if (Peaks[0] != null) tBFreqOne.Text = Convert.ToString(Peaks[0][14].X);
+                    if (Peaks[1] != null) tBFreqTwo.Text = Convert.ToString(Peaks[1][14].X);
+                    if (Peaks[2] != null) tBFreqThree.Text = Convert.ToString(Peaks[2][14].X);
+                    if (Peaks[3] != null) tBFreqFour.Text = Convert.ToString(Peaks[3][14].X);
+                    if (Peaks[4] != null) tBFreqFive.Text = Convert.ToString(Peaks[4][14].X);
+                    break;
+            }
+        }
+
+        private Point2D[][] FindPeaks()
+        {
+            //var x = myChart.Series[0].Points[1].XValue;
+            //var it = myChart.Series[0].Points[1].YValues[0];
+            var PeaksOfSpectrs = new Point2D[5][];
+            
+
+            for (int j = 0; j < countReadFile; j++)
+            {
+                Point2D[] Peaks = new Point2D[15];
+                for (int i = 0; i < Peaks.Length; i++)
+                {
+                    Peaks[i] = new Point2D();
+                }
+                int k = 0;
+
+                for (int i=0; i<myChart.Series[j].Points.Count; i++)
+                {
+                    if (myChart.Series[j].Points[i].YValues[0] >= Peaks[k].Y)
+                    {
+                        Peaks[k].Y = myChart.Series[j].Points[i].YValues[0];
+                        Peaks[k].X = myChart.Series[j].Points[i].XValue;
+                        
+                    } else
+                    {   if(Math.Abs(myChart.Series[j].Points[i-1].YValues[0] - myChart.Series[j].Points[i].YValues[0])>4.0)
+                        ++k;
+                    }
+                    if (k == Peaks.Length)
+                        break;
+                }
+
+                PeaksOfSpectrs[j] = Peaks;
+            }
+            return PeaksOfSpectrs;
         }
     }
 }

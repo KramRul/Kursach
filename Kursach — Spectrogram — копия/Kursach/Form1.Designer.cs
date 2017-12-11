@@ -39,6 +39,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tBFileName = new System.Windows.Forms.TextBox();
             this.tBFilePath = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmBoxHarmonic = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tBFreqOne = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tBFreqTwo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tBFreqThree = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tBFreqFour = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tBFreqFive = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +94,7 @@
             // 
             this.btOpenFile.Location = new System.Drawing.Point(1024, 47);
             this.btOpenFile.Name = "btOpenFile";
-            this.btOpenFile.Size = new System.Drawing.Size(107, 45);
+            this.btOpenFile.Size = new System.Drawing.Size(184, 45);
             this.btOpenFile.TabIndex = 3;
             this.btOpenFile.Text = "Обзор...";
             this.btOpenFile.UseVisualStyleBackColor = true;
@@ -86,7 +103,7 @@
             // 
             this.btShowSpectr.Location = new System.Drawing.Point(1024, 107);
             this.btShowSpectr.Name = "btShowSpectr";
-            this.btShowSpectr.Size = new System.Drawing.Size(107, 45);
+            this.btShowSpectr.Size = new System.Drawing.Size(184, 45);
             this.btShowSpectr.TabIndex = 4;
             this.btShowSpectr.Text = "Показать спектр";
             this.btShowSpectr.UseVisualStyleBackColor = true;
@@ -155,11 +172,182 @@
             this.tBFilePath.Size = new System.Drawing.Size(556, 22);
             this.tBFilePath.TabIndex = 10;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1052, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Гармоника";
+            // 
+            // cmBoxHarmonic
+            // 
+            this.cmBoxHarmonic.FormattingEnabled = true;
+            this.cmBoxHarmonic.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "5",
+            "10",
+            "15"});
+            this.cmBoxHarmonic.Location = new System.Drawing.Point(1138, 158);
+            this.cmBoxHarmonic.Name = "cmBoxHarmonic";
+            this.cmBoxHarmonic.Size = new System.Drawing.Size(52, 24);
+            this.cmBoxHarmonic.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1021, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Частота первого спектра";
+            // 
+            // tBFreqOne
+            // 
+            this.tBFreqOne.Location = new System.Drawing.Point(1065, 218);
+            this.tBFreqOne.Name = "tBFreqOne";
+            this.tBFreqOne.ReadOnly = true;
+            this.tBFreqOne.Size = new System.Drawing.Size(100, 22);
+            this.tBFreqOne.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1171, 218);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 17);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Гц";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1172, 263);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(24, 17);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Гц";
+            // 
+            // tBFreqTwo
+            // 
+            this.tBFreqTwo.Location = new System.Drawing.Point(1066, 263);
+            this.tBFreqTwo.Name = "tBFreqTwo";
+            this.tBFreqTwo.ReadOnly = true;
+            this.tBFreqTwo.Size = new System.Drawing.Size(100, 22);
+            this.tBFreqTwo.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1022, 243);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(175, 17);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Частота второго спектра";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1172, 308);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 17);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Гц";
+            // 
+            // tBFreqThree
+            // 
+            this.tBFreqThree.Location = new System.Drawing.Point(1066, 308);
+            this.tBFreqThree.Name = "tBFreqThree";
+            this.tBFreqThree.ReadOnly = true;
+            this.tBFreqThree.Size = new System.Drawing.Size(100, 22);
+            this.tBFreqThree.TabIndex = 20;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1022, 288);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(182, 17);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Частота третьего спектра";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1171, 353);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(24, 17);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Гц";
+            // 
+            // tBFreqFour
+            // 
+            this.tBFreqFour.Location = new System.Drawing.Point(1065, 353);
+            this.tBFreqFour.Name = "tBFreqFour";
+            this.tBFreqFour.ReadOnly = true;
+            this.tBFreqFour.Size = new System.Drawing.Size(100, 22);
+            this.tBFreqFour.TabIndex = 23;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1021, 333);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(198, 17);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Частота четвертого спектра";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1172, 398);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(24, 17);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Гц";
+            // 
+            // tBFreqFive
+            // 
+            this.tBFreqFive.Location = new System.Drawing.Point(1066, 398);
+            this.tBFreqFive.Name = "tBFreqFive";
+            this.tBFreqFive.ReadOnly = true;
+            this.tBFreqFive.Size = new System.Drawing.Size(100, 22);
+            this.tBFreqFive.TabIndex = 26;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1022, 378);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(168, 17);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Частота пятого спектра";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 525);
+            this.ClientSize = new System.Drawing.Size(1220, 525);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.tBFreqFive);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tBFreqFour);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tBFreqThree);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tBFreqTwo);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tBFreqOne);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cmBoxHarmonic);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.tBFilePath);
             this.Controls.Add(this.tBFileName);
             this.Controls.Add(this.label4);
@@ -192,6 +380,23 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tBFileName;
         private System.Windows.Forms.TextBox tBFilePath;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmBoxHarmonic;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tBFreqOne;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tBFreqTwo;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tBFreqThree;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tBFreqFour;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tBFreqFive;
+        private System.Windows.Forms.Label label15;
     }
 }
 
