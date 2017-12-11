@@ -22,6 +22,7 @@ namespace Kursach
         private int countReadFile=0;
 
         int size = 65536;
+        private int scale = 5000;
 
         public Form1()
         {
@@ -31,6 +32,7 @@ namespace Kursach
             cmBoxWindowFunc.SelectedIndexChanged += CmBoxWindowFunc_SelectedIndexChanged;
             cmBoxNumberOfCounts.SelectedIndexChanged += CmBoxNumberOfCounts_SelectedIndexChanged;
             cmBoxHarmonic.SelectedIndexChanged += CmBoxHarmonic_SelectedIndexChanged;
+            cmBoxScale.SelectedIndexChanged += CmBoxScale_SelectedIndexChanged;
             btOpenFile.Click += BtOpenFile_Click;
 
             fileName = new string[5];
@@ -40,6 +42,48 @@ namespace Kursach
             oldl = new double[5][];
             r = new double[5][];
          }
+
+        private void CmBoxScale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (countReadFile == 0) throw new Exception("Файл не открыт.");
+
+                switch (cmBoxScale.SelectedIndex)
+                {
+                    case -1:
+                        break;
+                    case 0:
+                        scale = 1000;
+                        break;
+                    case 1:
+                        scale = 2000;
+                        break;
+                    case 2:
+                        scale = 5000;
+                        break;
+                    case 3:
+                        scale = 10000;
+                        break;
+                    case 4:
+                        scale = 15000;
+                        break;
+                    case 5:
+                        scale = 20000;
+                        break;
+                }
+                for (int i = 0; i < myChart.Series.Count; i++)
+                {
+                    myChart.Series[i].Points.Clear();
+                    myChart.Series.RemoveAt(i);
+                }
+                ShowSpectr();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message + "\r\n" + "Метод: " + ex.TargetSite);
+            }
+        }
 
         private void CmBoxHarmonic_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -277,7 +321,7 @@ namespace Kursach
                     }
                     //Добавляем созданный набор точек в Chart
                     myChart.Series.Add(mySeriesOfPoint);*/
-                    for (int i = 1; i < 5000; i += 2)
+                    for (int i = 1; i < scale; i += 2)
                     {
                         if ((10 * Math.Log10(magn[i])) != Double.PositiveInfinity && (10 * Math.Log10(magn[i])) > Double.NegativeInfinity)
                             //mySeriesOfPoint.Points.AddXY(i, 10 * Math.Log10(magn[i]));

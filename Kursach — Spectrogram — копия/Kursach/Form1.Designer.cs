@@ -56,6 +56,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tBFreqFive = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.cmBoxScale = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -326,11 +328,38 @@
             this.label15.TabIndex = 25;
             this.label15.Text = "Частота пятого спектра";
             // 
+            // cmBoxScale
+            // 
+            this.cmBoxScale.FormattingEnabled = true;
+            this.cmBoxScale.Items.AddRange(new object[] {
+            "1000",
+            "2000",
+            "5000",
+            "10000",
+            "15000",
+            "20000"});
+            this.cmBoxScale.Location = new System.Drawing.Point(332, 479);
+            this.cmBoxScale.Name = "cmBoxScale";
+            this.cmBoxScale.Size = new System.Drawing.Size(140, 24);
+            this.cmBoxScale.TabIndex = 29;
+            this.cmBoxScale.Text = "Не выбрано";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(329, 459);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 17);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Масштаб";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 525);
+            this.Controls.Add(this.cmBoxScale);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.tBFreqFive);
             this.Controls.Add(this.label15);
@@ -397,6 +426,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tBFreqFive;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cmBoxScale;
+        private System.Windows.Forms.Label label16;
     }
 }
 
