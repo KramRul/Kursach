@@ -429,7 +429,7 @@ namespace Kursach
                     }
                     int k = 0;
 
-                    for (int i = 0; i < myChart.Series[j].Points.Count; i++)
+                    for (int i = 1; i < myChart.Series[j].Points.Count; i++)
                     {
                         if (myChart.Series[j].Points[i].YValues[0] >= Peaks[k].Y)
                         {
