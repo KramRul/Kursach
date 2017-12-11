@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.myChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.cmBoxWindowFunc = new System.Windows.Forms.ComboBox();
@@ -66,6 +67,8 @@
             this.myChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            legend4.Name = "Legend1";
+            this.myChart.Legends.Add(legend4);
             this.myChart.Location = new System.Drawing.Point(12, 47);
             this.myChart.Name = "myChart";
             this.myChart.Size = new System.Drawing.Size(994, 396);

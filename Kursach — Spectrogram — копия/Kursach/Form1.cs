@@ -113,6 +113,8 @@ namespace Kursach
                     tBFilePath.Text = filePath[countReadFile];
 
                     if (myChart.ChartAreas.Count == 0) myChart.ChartAreas.Add(new ChartArea("Math functions"));
+                    myChart.ChartAreas["Math functions"].AxisX.Title = "Гц";
+                    myChart.ChartAreas["Math functions"].AxisY.Title = "дБ";
                     /*mySeriesOfPoint = new Series("Sinus");
                     mySeriesOfPoint.ChartType = SeriesChartType.Line;
                     mySeriesOfPoint.ChartArea = "Math functions";*/
@@ -180,7 +182,10 @@ namespace Kursach
                 }
 
                 if (size < scale) throw new Exception("Количество отсчётов должно быть больше масштаба.");
-                if (size > l[0].Length) throw new Exception("Превышение числа отсчётов для спектра.");
+
+                for(int i=0;i<countReadFile;i++)
+                    if (size > l[i].Length)
+                        throw new Exception(String.Format("Превышение числа отсчётов для спектра {0}.",i));
 
                 for (int i = 0; i < myChart.Series.Count; i++)
                 {
