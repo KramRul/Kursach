@@ -121,7 +121,7 @@ namespace Kursach
 
                     for (int j = 0; j < countReadFile + 1; j++)
                     {
-                        Class2.readWav(filePath[j], out l[j], out r[j]);
+                        AudioRecorder.readWav(filePath[j], out l[j], out r[j]);
                         oldl[j] = new double[l[j].Length];
                         for (int i = 0; i < oldl[j].Length; i++)
                         {
@@ -318,7 +318,7 @@ namespace Kursach
                     }*/
 
                     double cur_freq = 0;
-                    double delta = (44100.0) / (spectrum.Length / 2);
+                    double delta = (44100.0) / (spectrum.Length/2);
                     double[] magn = new double[size];
 
                     for (var i = 0; i < spectrum.Length; i += 2)

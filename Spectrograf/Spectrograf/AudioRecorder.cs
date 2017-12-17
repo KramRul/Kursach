@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kursach
 {
-    public static class Class2
+    public static class AudioRecorder
     {
 
         public static void met()
@@ -206,14 +206,14 @@ namespace Kursach
                 R = null;
                 return true;
             case 2:
-                //L = new float[samps];
-                //R = new float[samps];
-                for (int i = 0, s = 0; i < samps; i++)
-                {
-                    // L[i] = asFloat[s++];
-                    // R[i] = asFloat[s++];
-                }
-                return true;
+                    L = new double[samps/2];
+                    R = new double[samps/2];
+                    for (int i = 0, s=0; i < samps/2; i++)
+                    {
+                        L[i] = asDob[s++];
+                        R[i] = asDob[s++];                        
+                    }
+                    return true;
             default:
                 return false;
         }

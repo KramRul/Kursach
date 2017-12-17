@@ -3,7 +3,6 @@ E:\Git_Projects\Kursach\Spectrograf\Spectrograf\bin\Debug\Spectrograf.exe
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\bin\Debug\Spectrograf.pdb
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\bin\Debug\NAudio.dll
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\bin\Debug\NAudio.xml
-E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.csprojResolveAssemblyReference.cache
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\AudioRecoding.Form1.resources
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.MainForm.resources
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.Properties.Resources.resources
