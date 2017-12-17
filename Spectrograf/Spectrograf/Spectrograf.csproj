@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Butterfly.cs" />
-    <Compile Include="AudioRecorder.cs" />
+    <Compile Include="AudioReader.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

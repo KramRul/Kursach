@@ -121,7 +121,7 @@ namespace Kursach
 
                     for (int j = 0; j < countReadFile + 1; j++)
                     {
-                        AudioRecorder.readWav(filePath[j], out l[j], out r[j]);
+                        AudioReader.readWav(filePath[j], out l[j], out r[j]);
                         oldl[j] = new double[l[j].Length];
                         for (int i = 0; i < oldl[j].Length; i++)
                         {

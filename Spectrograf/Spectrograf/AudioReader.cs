@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kursach
 {
-    public static class AudioRecorder
+    public static class AudioReader
     {
 
         public static void met()
