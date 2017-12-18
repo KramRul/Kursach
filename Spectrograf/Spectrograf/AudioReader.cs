@@ -10,51 +10,6 @@ namespace Kursach
 {
     public static class AudioReader
     {
-
-        public static void met()
-        {
-            BinaryReader reader = new BinaryReader(new FileStream(@"WaveIn 8kHz mono 2017-11-27 17-09-46.wav", FileMode.Open));
-            byte[] sound;
-
-            int chunkID = reader.ReadInt32();
-            int fileSize = reader.ReadInt32();
-            int riffType = reader.ReadInt32();
-            int fmtID = reader.ReadInt32();
-            int fmtSize = reader.ReadInt32();
-            int fmtCode = reader.ReadInt16();
-            int channels = reader.ReadInt16();
-            int sampleRate = reader.ReadInt32();
-            int fmtAvgBPS = reader.ReadInt32();
-            int fmtBlockAlign = reader.ReadInt16();
-            int bitDepth = reader.ReadInt16();
-
-            if (fmtSize == 18)
-            {
-                // Read any extra values               
-                int fmtExtraSize = reader.ReadInt16();
-                reader.ReadBytes(fmtExtraSize);
-            }
-
-            int dataID = reader.ReadInt32();
-            int dataSize = reader.ReadInt32();
-            sound = reader.ReadBytes(dataSize);
-
-            int i = 1;
-            int j = 400 - Convert.ToInt32(sound[0]);
-            //gra.DrawLine(a, 0, 400, i, j);
-            //Point prev = new Point(i, j);
-            //i++;
-            //Point next = new Point();
-            //foreach (byte temp in sound)
-            //{
-            //    j = 400 - Convert.ToInt32(temp));
-            //    next.X = i++;
-            //    next.Y = j;
-            //    gra.DrawLine(a, prev, next);
-            //    prev = next;
-            //}
-        }
-
         public static bool readWav(string filename, out double[] L, out double[] R/*out float[] L, out float[] R*/)
         {
             L = R = null;

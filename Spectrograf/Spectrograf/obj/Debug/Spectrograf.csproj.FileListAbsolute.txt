@@ -11,3 +11,4 @@ E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.csproj.Cor
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.exe
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.pdb
 E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Kursach.Spectrogram.resources
+E:\Git_Projects\Kursach\Spectrograf\Spectrograf\obj\Debug\Spectrograf.csprojResolveAssemblyReference.cache
